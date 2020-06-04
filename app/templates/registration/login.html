@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <div id="content-container" class="fullscreen-container fullscreen-container-center" class="container p-none">
+            <form id="login-form" method="post" 
+                  action="{% url 'login' %}"
+		  class="form form-login">
+                {% csrf_token %}
+		<div class="form_item">
+			<label for="id_username" class="form_item_label">Логин</label>
+			<input id="id_username" name="username" type="text" class="form-control form_item_input">
+		</div>
+		<div class="form_item">
+			<label for="id_password" class="form_item_label">Пароль</label>
+			<input id="id_password" name="password" type="password" class="form-control form_item_input">
+		</div>
+                {% if form.errors %}
+                    <p class=" label label-danger">
+                        Your username and password didn't match. 
+                        Please try again.
+                    </p>
+                {% endif %}
+
+                <input type="submit" value="Войти" 
+                       class="btn btn-primary pull-right form_button form_button-submit" />
+                <input type="hidden" name="next" value="{{ next }}" />
+            </form>
+    </div>
+{% endblock content %}

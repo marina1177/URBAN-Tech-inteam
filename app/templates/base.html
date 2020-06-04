@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+	<title>{% block title %}Smart City{% endblock title %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% block global_styles %}
+		<link href="{% static "css/main.css" %}" rel="stylesheet">
+		<link href="{% static "css/dashboard.css" %}" rel="stylesheet">
+	{% endblock global_styles %}
+	{% block styles %}{% endblock styles %}
+	<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.js'></script>
+	<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.5.0/mapbox-gl.css' rel='stylesheet' />
+    </head>
+
+    <body>
+    {% block content %}
+    {% endblock content %}
+    </body>
+   {% block global_js %}
+	<script src="//d3js.org/d3.v3.min.js"></script>
+       <script src="{% static "js/main.js" %}"></script>
+       <script src="{% static "js/timeseries.js" %}"></script>
+       <script src="{% static "js/sunburst.js" %}"></script>
+   {% endblock global_js %}
+   {% block js %}{% endblock js %}
+</html>

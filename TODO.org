@@ -1,0 +1,41 @@
+* DONE containerize applications
+** DONE initialize docker-compose.yml
+*** DONE django
+*** DONE postgresql
+*** DONE nginx for static files
+*** DONE add sample .env file (do NOT ignore this file on purpose)
+** DONE django container
+*** DONE configure database connection
+** DONE db container
+*** DONE add env for db user etc
+*** DONE add volume for db_data
+** DONE webserver container
+*** DONE start serving django through nginx proxy
+*** DONE enable serving static files through nginx
+
+* TODO Develop apps
+** DONE fixtures
+*** DONE Groups
+**** DONE Contractor
+**** DONE Governor
+**** DONE Citizen
+** TODO Users
+*** TODO auth demo
+**** DONE login page
+**** DONE logout hook
+**** TODO register page (citizens only)
+**** DONE redirect not logged in users to login page
+** TODO Governor
+*** TODO check permissions
+**** TODO redirect not logged in users to login page
+** TODO Citizen
+*** TODO check permissions
+**** TODO redirect not logged in users to login page
+** TODO Contractor
+*** DONE check permissions
+**** DONE redirect not logged in users to login page
+*** TODO add contractor page
+**** TODO mock-up dashboard
+**** TODO mock-up map
+
+* DONE add all the cache files to gitignore!!

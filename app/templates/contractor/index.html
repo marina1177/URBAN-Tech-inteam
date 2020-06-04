@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Contractor page{% endblock %}
+
+{% block content %}
+<div class="dashboard-container">
+<div class="card card-mid" id="map-card">
+</div>
+<div class="card card-sm" id="dash-card-small-1">
+</div>
+<!--<div class="card card-sm" id="dash-card-small-2">
+	</div>--!>
+<div class="card card-mid" id="dash-card-mid">
+</div>
+<div class="card card-lg" id="dash-card-large">
+	<video width="auto" autoplay="autoplay" height="100%" playsinline autoplay muted loop>
+	<source src="/static/media/snow.mp4" type="video/mp4">
+	</video>
+</div>
+
+<script>
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGV2c2FndWwiLCJhIjoiY2pjd2RhMzl0MGdhaDMzcW82eGx1amNpayJ9.9CJ5rqAdw90_Tf9FKj-XBw';
+var map = new mapboxgl.Map({
+container: 'map-card', // container id
+style: 'mapbox://styles/mapbox/dark-v10',
+center: [37.6156, 55.7522], // starting position [lng, lat]
+zoom: 9 // starting zoom
+});
+map.addControl(new mapboxgl.NavigationControl());
+</script>
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+        app:
+                build: app
+                restart: always
+                ports:
+                        - 8000:8000
+                environment:
+                        - DB_NAME=${DB_NAME}
+                        - DB_USER=${DB_USER}
+                        - DB_PASSWORD=${DB_PASSWORD}
+                        - DB_HOST=db
+                depends_on:
+                        - db
+                        - nginx
+
+        db:
+                image: postgres:12.1-alpine
+                restart: always
+                environment:
+                        - POSTGRES_DB=${DB_NAME}
+                        - POSTGRES_USER=${DB_USER}
+                        - POSTGRES_PASSWORD=${DB_PASSWORD}
+                volumes:
+                        - db_data:/var/lib/postgresql
+
+        nginx:
+                image: nginx:stable
+                restart: always
+                volumes:
+                        - ./nginx/:/etc/nginx/
+                        - ./static/:/usr/src/app/static
+                ports:
+                        - 80:80
+
+volumes:
+        db_data:
+                driver: local
+
